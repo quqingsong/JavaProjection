@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+<!--    注册bean-->
+    <bean id="studentManage" class="com.dingler.service.serviceImpl.StudentManageImpl"/>
+
+<!--    方式一:原生spring API方式-->
+    <bean id="mybefore" class="com.dingler.PrimevalAspect.MyBeforeAspect"/>
+    <bean id="myafter" class="com.dingler.PrimevalAspect.MyAfterAspect"/>
+
+    <aop:config>
+<!--            切入点-->
+            <aop:pointcut id="point" expression="execution(* com.dingler.service.serviceImpl..*.*(..))"/>
+<!--        执行环绕增强-->
+        <aop:advisor advice-ref="mybefore" pointcut-ref="point"/>
+        <aop:advisor advice-ref="myafter" pointcut-ref="point"/>
+    </aop:config>
+</beans>

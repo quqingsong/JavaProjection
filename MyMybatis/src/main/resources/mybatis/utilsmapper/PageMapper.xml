@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace和Mapper接口类名字一样 -->
+<mapper namespace="com.dingler.utils.Page.mapper.PageMapper">
+    <!-- 查询1 -->
+    <select id="selectForPage1" resultType="com.dingler.pojo.HGM_Data">
+        select * from user limit #{param1},#{param2}
+    </select>
+    <!-- 查询2-->
+    <select id="selectForPage2" resultType="com.dingler.pojo.HGM_Data">
+        select * from user limit #{startIndex},#{pageSize}
+    </select>
+<!--    &lt;!&ndash; 查询3&ndash;&gt;-->
+<!--    <select id="selectAll" resultType="User">-->
+<!--        select * from user-->
+<!--    </select>-->
+
+    <!-- 查询总条数-->
+    <select id="selectCount" resultType="java.lang.Integer">
+        select count(*) from user
+    </select>
+    <!-- 查询4-->
+    <select id="selectForPage3" resultType="com.dingler.pojo.HGM_Data">
+        select * from user limit  #{startIndex},#{pageSize}
+    </select>
+
+    <!-- 查询5-->
+    <select id="selectForPage4" resultType="com.dingler.pojo.HGM_Data">
+        select * from user
+        where name like "%"#{keywords}"%" or address like "%"#{keywords}"%"
+         limit  #{startIndex},#{pageSize}
+    </select>
+    <!-- 模糊查询查询总条数-->
+    <select id="selectCount2" resultType="java.lang.Integer" parameterType="java.lang.String">
+        select count(*) from user where name like "%"#{value}"%" or address like "%"#{value}"%"
+    </select>
+</mapper>

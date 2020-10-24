@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--这里是调用接口-->
+<mapper namespace="com.dingler.mapper.HGMMapper">
+    <!--查询所有数据-->
+    <select id="getHGMDataList" resultType="com.dingler.pojo.HGM_Data">
+        select * from  ;
+    </select>
+    <!--查询其中一条数据-->
+    <select id="getHGMDeviceCodeList" parameterType="String" resultType="com.dingler.pojo.HGM_Data">
+        select ID from HGM_History_2020 where DeviceCode=#{divicedode};
+    </select>
+    <!--查询时间-->
+    <!--查询其中一条数据-->
+    <select id="getHGMIdList" parameterType="integer" resultType="com.dingler.pojo.HGM_Data">
+        select * from HGM_History_2020 where id=#{id};
+    </select>
+
+    <select id="getHGMPointValueList" parameterType="float" resultType="com.dingler.pojo.HGM_Data">
+        select * from HGM_History_2020 where PointValue=#{pointvalue};
+    </select>
+</mapper>

@@ -1,0 +1,10 @@
+com\course\controller\MyController.class
+com\course\service\serviceImpl\RemoteRequestServiceImpl$1.class
+com\course\service\serviceImpl\RemoteRequestServiceImpl.class
+com\course\bean\User.class
+com\course\service\serviceImpl\RemoteRequestServiceImpl$HttpComponentsClientRestfulHttpRequestFactory.class
+com\course\controller\MyPostMethodController.class
+com\course\controller\SuZHouController.class
+com\course\Application.class
+com\course\service\RemoteRequetService.class
+com\course\service\serviceImpl\RemoteRequestServiceImpl$HttpGetRequestWithEntity.class
