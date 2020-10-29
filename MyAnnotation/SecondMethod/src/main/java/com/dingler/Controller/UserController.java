@@ -26,6 +26,7 @@ public class UserController {
     }
 
     @MyAnnotation(value = "这是日志内容")
+    //http://localhost:8080/user/6
     @RequestMapping("user/{id}")
     public User findUser(@PathVariable("id") Integer id) {
         System.out.println("User = " + userService.findUserById(id).toString());
