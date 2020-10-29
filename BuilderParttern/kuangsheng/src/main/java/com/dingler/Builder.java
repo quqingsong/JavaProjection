@@ -4,7 +4,7 @@ package com.dingler;
  * @Version 1.0
  * @Author:屈青松
  * @Date:2020/10/27
- * @Content:抽象的建造者：方法
+ * @Content:抽象的建造者：方法，抽象类
  */
 public abstract class Builder {
     //地基

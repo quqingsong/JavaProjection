@@ -6,7 +6,7 @@ package com.dingler;
  * @Date:2020/10/27
  * @Content:主启动测试类
  */
-public class Test {
+public class Client {
     public static void main(String[] args) {
         Director director=new Director();
         Product product=director.build(new Worker());

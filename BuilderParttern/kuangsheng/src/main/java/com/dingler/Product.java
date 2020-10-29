@@ -4,7 +4,7 @@ package com.dingler;
  * @Version 1.0
  * @Author:屈青松
  * @Date:2020/10/27
- * @Content:产品：房子
+ * @Content:产品：房子,代表产品属性
  */
 public class Product {
 
