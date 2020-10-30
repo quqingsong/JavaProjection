@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--这里是调用接口-->
+<mapper namespace="com.dingler.mapper.UserControlMessageMapper">
+    <!--添加用户操作记录-->
+    <insert id="saveMessage" parameterType="com.dingler.entity.entityDo.UserMessageDo">
+
+
+                        insert into
+                        userdevicemessage(currentdate,userip,deviceip,deviceport,river,deviceplace,username,devicename,controlmessage,feedbackmessage)
+                        values
+                        (#{currentdate},#{userip},#{deviceip},#{deviceport},#{river},#{deviceplace},#{username},#{devicename},#{controlmessage},#{feedbackmessage})
+
+
+    </insert>
+    <!--查询所有数据-->
+    <select id="selectMessage" resultType="com.dingler.entity.entityVo.UserMessageVo">
+
+
+                        select * from userdevicemessage;
+
+
+    </select>
+    <!--查询河道对应设备数据-->
+    <select id="inquerydevicelog" parameterType="map" resultType="com.dingler.entity.entityVo.UserMessageVo">
+        select top(#{pagesize}) currentdate,userip,river,deviceplace,username,devicename,controlmessage,feedbackmessage
+        from userdevicemessage
+         <where>
+             id not in (select top(#{pagesize}*(#{currentpage}-1)) id
+             from userdevicemessage
+         </where>
+
+        <if test="rivername == null or rivername == '' ">
+                <if test="beforedate == null or beforedate == '' ">
+                  order by currentdate desc)
+                  order by currentdate desc
+                </if>
+
+            <if test="beforedate != null and beforedate != '' ">
+                <where>
+                currentdate between #{beforedate} AND #{afterdate}
+                </where>
+                order by currentdate desc
+                )
+                and ((currentdate between #{beforedate} AND #{afterdate}))
+                order by currentdate desc
+            </if>
+
+        </if>
+
+        <if test="rivername != null and rivername != '' ">
+
+            <if test="beforedate == null or beforedate == '' ">
+                <where>
+                    river=#{rivername}
+                    order by currentdate desc)
+                </where>
+                and river=#{rivername}
+                order by currentdate desc
+            </if>
+
+
+            <if test="beforedate != null and beforedate != '' ">
+                <where>
+                    currentdate between #{beforedate} AND #{afterdate}
+                </where>
+                    and river=#{rivername} order by currentdate desc)
+                    and ((currentdate between #{beforedate} AND #{afterdate}) and river=#{rivername} )
+                    order by currentdate desc
+            </if>
+        </if>
+    </select>
+
+    <select id="inquerypagecount" parameterType="map" resultType="integer">
+        select count(*) from userdevicemessage
+            <if test="rivername == null or rivername == '' ">
+                <if test="beforedate == null and beforedate == '' ">
+
+                </if>
+
+                <if test="beforedate != null and beforedate != '' ">
+                    <where>
+                        currentdate between #{beforedate} AND #{afterdate}
+                    </where>
+                </if>
+
+            </if>
+
+
+        <if test="rivername != null and rivername != '' ">
+
+            <if test="beforedate == null or beforedate == '' ">
+                <where>
+                    river=#{rivername}
+                </where>
+            </if>
+
+
+            <if test="beforedate != null and beforedate != '' ">
+                <where>
+                    currentdate between #{beforedate} AND #{afterdate}
+                </where>
+                and river=#{rivername}
+            </if>
+        </if>
+    </select>
+</mapper>
