@@ -1,8 +1,9 @@
 package com.dingler;
 
-import com.dingler.proxy.UserManagerImplProxy;
+import com.dingler.proxy.MyLogHandler;
 import com.dingler.service.UserManager;
 import com.dingler.service.serviceImpl.UserManagerImpl;
+import sun.rmi.log.LogHandler;
 
 /**
  * @Version 1.0
@@ -14,8 +15,9 @@ import com.dingler.service.serviceImpl.UserManagerImpl;
 public class Client {
 
     public static void main(String[] args){
+        MyLogHandler myLogHandler=new MyLogHandler();
+        UserManager userManager=(UserManager)myLogHandler.newProxyInstance(new UserManagerImpl());
         //UserManager userManager=new UserManagerImpl();
-        UserManager userManager=new UserManagerImplProxy(new UserManagerImpl());
         userManager.addUser("1111", "张三");
     }
 }

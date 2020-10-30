@@ -12,6 +12,7 @@
         <module>AdapterMode</module>
         <module>BridgeMode</module>
         <module>ProxyPattern</module>
+        <module>DynamicProxy</module>
     </modules>
 
 
