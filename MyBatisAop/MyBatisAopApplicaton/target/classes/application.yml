@@ -1,0 +1,45 @@
+
+
+
+spring:
+  datasource:
+    username: sa
+    password: 111111
+#    password: Dingler123456
+    url: jdbc:sqlserver://127.0.0.1:1433;DatabaseName=suzhou3
+#    url: jdbc:sqlserver://192.168.123.91:1433;DatabaseName=suzhou3
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  data:
+    #ElasticSearch的连接地址
+    elasticsearch:
+      cluster-name: elasticsearch   #es节点名称
+      cluster-nodes: localhost:9300 #这里是tcp连接，所以用9300端口
+
+
+  http:
+    encoding:
+      force: true
+      charset: utf-8
+      enabled: true
+
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 8080
+
+
+
+#mybatis配置
+mybatis:
+  typeAliasesPackage: com.dingler.entity
+  mapperLocations: classpath:mapper/*.xml
+  #configLocation: classpath:/mybatis-config.xml
+  configuration:
+    cache-enabled: true
+    lazyLoadingEnabled: true
+    multipleResultSetsEnabled: true
+    map-underscore-to-camel-case: true
+    #org.apache.ibatis.logging.stdout.StdOutImpl 控制台打印sql语句方便调试sql语句执行错误
+    #org.apache.ibatis.logging.log4j2.Log4j2Impl:这个不在控制台打印查询结果,但是在log4j中打印
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

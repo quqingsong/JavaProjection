@@ -1,0 +1,5 @@
+com\dingler\Aspect\MyAspect.class
+com\dingler\controller\MyController.class
+com\dingler\DataAopApplication.class
+com\dingler\service\serviceImpl\StudentManageServiceImpl.class
+com\dingler\service\StudentManageService.class
