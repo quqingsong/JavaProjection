@@ -14,7 +14,7 @@
     <bean id="div" class="com.dingler.DivAspect.MyDivAspect"/>
 
     <aop:config>
-<!--        自定义切面，要引用的类-->
+<!--        自定义切面，要引用的类,ref是引用-->
         <aop:aspect ref="div">
 <!--            切入点-->
             <aop:pointcut id="point" expression="execution(* com.dingler.service.serviceImpl..*.*(..))"/>
