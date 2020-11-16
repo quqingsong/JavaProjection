@@ -1,0 +1,6 @@
+com\dingler\config\RedisConfig.class
+com\dingler\MyApplication.class
+com\dingler\pojo\User.class
+com\dingler\utils\RedisUtil.class
+com\dingler\utils\Status$ExpireEnum.class
+com\dingler\utils\Status.class
