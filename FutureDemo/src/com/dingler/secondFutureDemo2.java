@@ -13,6 +13,7 @@ import java.util.concurrent.*;
 public class secondFutureDemo2 {
 
   public static void main(String[] args) throws InterruptedException, ExecutionException {
+      //定长线程
   ExecutorService executor = Executors.newFixedThreadPool(2);
   //创建一个Callable，3秒后返回String类型
       Callable myCallable = new Callable() {
